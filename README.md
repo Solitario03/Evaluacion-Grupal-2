@@ -19,14 +19,14 @@
 
 ---
 
-## 🧮 Evaluación Grupal 1 (25%)
+## 🧮 Evaluación Grupal 2 
 
 **Tema:**  
 > Desarrollo de una librería en Python que realice estadísticas básicas utilizando Programación Orientada a Objetos (POO).  
 > Incluye clases, herencia y polimorfismo para el análisis de datos cuantitativos y cualitativos.
 
-**Fecha de entrega:** 28 de octubre (23:55 h)  
-**Fecha de presentación:** 30 de octubre  
+**Fecha de entrega:** 16 de diciembre  
+**Fecha de presentación:** 23 o 30 de diciembre  
 [Presentación 👩‍🏫](https://mar93681-jpg.github.io/Parcial-LP2/)
 
 ---
@@ -35,10 +35,8 @@
 
 | Integrante   | Usuario   | Aporte   |
 |---------------|----------|----------|
-| Malvacedo Quiñonez, Jean Franco  | Solitario03  | Tarea 1: Arquitectura y Clase Base (25%)  |
-| Cruz Cruz, Hilary Penelope       | stella5555  | Tarea 2: Estadísticas Cuantitativas (25%)  |
-| Chávez Mendoza, Maria Fernanda   | mar93681-jpg  | Tarea 3: Estadísticas Cualitativas (25%)  |
-| Mejia Auccapoma, Piero Cesar     | PC-011  | Tarea 4: Integración, Polimorfismo y Pruebas (25%)  |
+| Malvacedo Quiñonez, Jean Franco  | Solitario03  | Tarea 2  |
+| Mejia Auccapoma, Piero Cesar     | PC-011  | Tarea 3  |
 
 ---
 
