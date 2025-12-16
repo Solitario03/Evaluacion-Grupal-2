@@ -21,16 +21,16 @@
 
 ## 🧮 Evaluación Grupal 2 
 
-**Análisis de precios y disponibilidad de libros académicos **  
+** Análisis de precios y disponibilidad de libros académicos **  
 Proyecto que consiste en recopilar automáticamente información de distintas plataformas en línea sobre precios, stock y formatos de libros académicos, con el fin de comparar costos, identificar disponibilidad y apoyar la toma de decisiones de estudiantes e instituciones educativas.
 
-**Relevancia **  
+** Relevancia **  
 Facilita la comparación de precios para estudiantes
 
-**Fuentes **  
+** Fuentes **  
 Tiendas online de libros + APIs de comercio electrónico. 
 
-**Producto **  
+** Producto **  
 Conjunto de datos con precios, autores y editoriales. DAMA 3 fuentes
 
 **Fecha de entrega:** 16 de diciembre  
