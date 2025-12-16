@@ -40,10 +40,10 @@ Conjunto de datos con precios, autores y editoriales. DAMA 3 fuentes
 
 ## 👥 Integrantes del grupo
 
-| Integrante   | Usuario   | Aporte   |
+| Integrante   | Usuario   | Código   |
 |---------------|----------|----------|
-| Malvacedo Quiñonez, Jean Franco  | Solitario03  | Tarea 1  |
-| Mejia Auccapoma, Piero Cesar     | PC-011  | Tarea 2  |
+| Malvacedo Quiñonez, Jean Franco  | Solitario03  | 20231496  |
+| Mejia Auccapoma, Piero Cesar     | PC-011  | 20230399  |
 
 
 
