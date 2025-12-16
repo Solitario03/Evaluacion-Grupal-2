@@ -21,8 +21,17 @@
 
 ## 🧮 Evaluación Grupal 2 
 
-**Tema de proyecto**  
-Tema de proyecto
+**Análisis de precios y disponibilidad de libros académicos **  
+Proyecto que consiste en recopilar automáticamente información de distintas plataformas en línea sobre precios, stock y formatos de libros académicos, con el fin de comparar costos, identificar disponibilidad y apoyar la toma de decisiones de estudiantes e instituciones educativas.
+
+**Relevancia **  
+Facilita la comparación de precios para estudiantes
+
+**Fuentes **  
+Tiendas online de libros + APIs de comercio electrónico. 
+
+**Producto **  
+Conjunto de datos con precios, autores y editoriales. DAMA 3 fuentes
 
 **Fecha de entrega:** 16 de diciembre  
 **Fecha de presentación:** 23 o 30 de diciembre  
@@ -36,39 +45,5 @@ Tema de proyecto
 | Malvacedo Quiñonez, Jean Franco  | Solitario03  | Tarea 2  |
 | Mejia Auccapoma, Piero Cesar     | PC-011  | Tarea 3  |
 
----
 
-## 📋 Descripción del caso
-
-> **Objetivo:**  
-> Desarrollar un paquete o librería en Python que realice **estadísticas básicas** (resúmenes) para datos cuantitativos y cualitativos utilizando principios de **Programación Orientada a Objetos (POO)**.
-
-**Estadísticas consideradas:**
-- **Cuantitativas:** media, mediana, desviación estándar, percentiles, etc.  
-- **Cualitativas:** moda(s) y tabla de frecuencia.
-
----
-
-## 🧩 Estructura del proyecto
-
-El proyecto está dividido en tres módulos:
-
-```text
-📦 Proyecto_Estadistico/
- ┣ 📜 estadistica_cualitativa.py
- ┣ 📜 estadistica_cuantitativa.py
- ┣ 📜 simular_datos.py
- ┣ 📜 datos_simulados.csv
- ┗ 📜 main.py
-```
-## Tabla de Contenidos (Archivos del Repositorio)
-
-1. [Base de Estadísticas (EstadisticaBase.py)](libreria/estadisticas_poo/EstadisticaBase.py)
-2. [Inicializador (__init__.py)](libreria/estadisticas_poo/__init__.py)
-3. [Estadística Cualitativa (estadistica_cualitativa.py)](libreria/estadisticas_poo/estadistica_cualitativa.py)
-4. [Estadística Cuantitativa (estadistica_cuantitativa.py)](libreria/estadisticas_poo/estadistica_cuantitativa.py)
-6. [Simulador de Datos (simular_datos.py)](libreria/simular_datos.py)
-7. [Datos Simulados (datos_simulados.csv)](Data/datos_simulados.csv)
-8. [Integración, Polimorfismo y Pruebas (main.py)](libreria/estadisticas_poo/main.py)
-9. [Módulo Principal (main.ipynb)](notebooks/main.ipynb)
 
