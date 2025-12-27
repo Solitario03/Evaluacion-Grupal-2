@@ -72,18 +72,49 @@ Conjunto de datos con precios, autores y editoriales.
 
 <ol start="3">
   <li>
-    <strong>PublicAPIs.dev</strong><br>
-    <a href="https://publicapis.dev/" target="_blank">
-      https://publicapis.dev/
+    <strong>Open Library API</strong><br>
+    <a href="https://openlibrary.org/developers/api" target="_blank">
+      https://openlibrary.org/developers/api
     </a><br>
-    Directorio colaborativo que reúne más de 1400 APIs públicas gratuitas para desarrolladores,
-    organizadas por categorías como Libros, Educación, Noticias y Gobierno. En este proyecto
-    se utilizará como fuente de referencia para identificar y seleccionar APIs relacionadas
-    con libros académicos (por ejemplo, APIs de libros, autores e ISBN), las cuales
-    complementarán la información obtenida mediante web scraping con datos estandarizados
-    y estructurados en formato JSON.
+    API pública mantenida por Internet Archive que permite acceder a información
+    detallada sobre libros, incluyendo títulos, ediciones, autores, materias e ISBN.
+    En este proyecto se utilizará para obtener datos de libros académicos mediante
+    búsquedas por título, autor o ISBN, complementando los datos extraídos por web scraping
+    con información estructurada en formato JSON.
   </li>
 </ol>
+
+<ol start="4">
+  <li>
+    <strong>OpenAlex API</strong><br>
+    <a href="https://docs.openalex.org/" target="_blank">
+      https://docs.openalex.org/
+    </a><br>
+    API pública orientada a datos académicos que proporciona información estructurada
+    sobre autores, trabajos científicos, instituciones y áreas de estudio.
+    En este proyecto se utilizará para obtener datos de autores académicos,
+    como nombre, afiliación institucional y número de publicaciones,
+    permitiendo enriquecer la información obtenida desde la API de libros
+    y el web scraping, en formato JSON.
+  </li>
+</ol>
+
+<ol start="5">
+  <li>
+    <strong>Crossref API</strong><br>
+    <a href="https://api.crossref.org/" target="_blank">
+      https://api.crossref.org/
+    </a><br>
+    API pública que permite consultar metadatos bibliográficos de publicaciones
+    académicas mediante identificadores como DOI e ISBN.
+    En este proyecto se utilizará para obtener información estandarizada
+    de libros y capítulos académicos, como editorial, fecha de publicación
+    y referencias, complementando los datos obtenidos desde Open Library
+    y el web scraping, en formato JSON.
+  </li>
+</ol>
+
+
 
 ---
 
@@ -114,3 +145,4 @@ Conjunto de datos con precios, autores y editoriales.
     reforzando el enfoque del proyecto en la integración de datos automatizada.
   </li>
 </ul>
+
