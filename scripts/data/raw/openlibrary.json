@@ -1,0 +1,208 @@
+{
+    "numFound": 9,
+    "start": 0,
+    "numFoundExact": true,
+    "num_found": 9,
+    "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+    "q": "python libros",
+    "offset": null,
+    "docs": [
+        {
+            "author_key": [
+                "OL2693119A",
+                "OL1820519A",
+                "OL912170A",
+                "OL1001573A",
+                "OL22555A",
+                "OL2658516A",
+                "OL4452479A",
+                "OL2621744A",
+                "OL245433A"
+            ],
+            "author_name": [
+                "Monty Python",
+                "Graham Chapman",
+                "John Cleese",
+                "Terry Gilliam",
+                "Eric Idle",
+                "Terry Jones",
+                "Michael Palin",
+                "et al",
+                "Bob McCabe"
+            ],
+            "cover_edition_key": "OL7984514M",
+            "cover_i": 499218,
+            "ebook_access": "borrowable",
+            "edition_count": 18,
+            "first_publish_year": 2003,
+            "has_fulltext": true,
+            "ia": [
+                "pythonsautobiogr0000unse",
+                "pythonsautobiogr0000mont",
+                "pythons0000unse"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL14947004W",
+            "language": [
+                "und",
+                "eng"
+            ],
+            "lending_edition_s": "OL7984793M",
+            "lending_identifier_s": "pythonsautobiogr0000unse",
+            "public_scan_b": false,
+            "title": "Pythons' Autobiography by the Pythons"
+        },
+        {
+            "author_key": [
+                "OL12589138A",
+                "OL12606636A"
+            ],
+            "author_name": [
+                "Marco Buttu",
+                "EDIZIONI LSWR "
+            ],
+            "cover_edition_key": "OL25941057M",
+            "cover_i": 7440463,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2016,
+            "has_fulltext": false,
+            "key": "/works/OL17362819W",
+            "public_scan_b": false,
+            "title": "El gran libro de Python"
+        },
+        {
+            "author_key": [
+                "OL9091522A"
+            ],
+            "author_name": [
+                "José Dimas Luján Castillo"
+            ],
+            "cover_edition_key": "OL47089780M",
+            "cover_i": 13458028,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL34740988W",
+            "public_scan_b": false,
+            "title": "Aprende a programar con PYTHON"
+        },
+        {
+            "author_key": [
+                "OL10716675A"
+            ],
+            "author_name": [
+                "Juan Carlos Orós Cabello"
+            ],
+            "cover_edition_key": "OL47089766M",
+            "cover_i": 13458005,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2022,
+            "has_fulltext": false,
+            "key": "/works/OL34740973W",
+            "public_scan_b": false,
+            "title": "PYTHON. Curso práctico de formación"
+        },
+        {
+            "author_key": [
+                "OL12531255A"
+            ],
+            "author_name": [
+                "Arturo Fernández Montoro"
+            ],
+            "cover_edition_key": "OL47089821M",
+            "cover_i": 13458090,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2013,
+            "has_fulltext": false,
+            "key": "/works/OL34741028W",
+            "public_scan_b": false,
+            "title": "PYTHON 3 al descubierto 2º Edición"
+        },
+        {
+            "author_key": [
+                "OL12531222A",
+                "OL12531223A",
+                "OL12531224A"
+            ],
+            "author_name": [
+                "Rafael Caballero Roldán",
+                "Enrique Martín Martín",
+                "Adrián Riesco Rodríguez"
+            ],
+            "cover_edition_key": "OL47089741M",
+            "cover_i": 13457965,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL34740950W",
+            "public_scan_b": false,
+            "title": "BIG DATA con PYTHON. Recolección, almacenamiento y proceso"
+        },
+        {
+            "author_key": [
+                "OL4203095A"
+            ],
+            "author_name": [
+                "Tony Chan"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2022,
+            "has_fulltext": false,
+            "key": "/works/OL31182772W",
+            "language": [
+                "ita"
+            ],
+            "public_scan_b": false,
+            "title": "C# Java PHP Python, la Guida Completa Alla Programmazione Ad Oggetti"
+        },
+        {
+            "author_key": [
+                "OL4452479A"
+            ],
+            "author_name": [
+                "Michael Palin"
+            ],
+            "cover_edition_key": "OL27358264M",
+            "cover_i": 8821550,
+            "ebook_access": "no_ebook",
+            "edition_count": 7,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL19761362W",
+            "language": [
+                "eng",
+                "ger"
+            ],
+            "public_scan_b": false,
+            "title": "Erebus"
+        },
+        {
+            "author_key": [
+                "OL4452479A",
+                "OL7953881A"
+            ],
+            "author_name": [
+                "Michael Palin",
+                "Joan Eloi Roca"
+            ],
+            "cover_edition_key": "OL28140128M",
+            "cover_i": 10082566,
+            "ebook_access": "no_ebook",
+            "edition_count": 5,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL20789890W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "North Korea Journal"
+        }
+    ]
+}
