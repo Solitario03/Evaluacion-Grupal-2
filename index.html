@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluación Grupal 2 - Análisis de Datos</title>
+<title>Evaluación Grupal 2 - UNALM</title>
 <style>
 /* === ESTILOS VISUALES (PALETA TIERRA/OTOÑO) === */
 :root {
@@ -28,7 +28,7 @@ body {
 header {
     background: linear-gradient(135deg, var(--c-cafe), var(--c-terra));
     border-bottom: 4px solid var(--c-naranja);
-    height: 80px;
+    height: 70px; /* Un poco más compacto */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,10 +38,10 @@ header {
 }
 
 header h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--c-naranja);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -51,13 +51,13 @@ main {
     height: 100vh;
     width: 100%;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    padding-top: 80px;
+    padding-top: 70px;
 }
 
 section {
     min-width: 100%;
     height: 100%;
-    padding: 1rem 3rem;
+    padding: 1rem 3rem 4rem; /* Padding bottom extra para scroll */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -69,21 +69,22 @@ section {
 h2 {
     color: var(--c-naranja);
     font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
     border-bottom: 2px solid var(--c-oliva);
     padding-bottom: 5px;
     text-align: center;
 }
 
+/* CORRECCIÓN DE ALINEACIÓN DE H3 */
 h3 { 
     color: var(--c-oliva); 
-    margin: 1.5rem 0 0.5rem; 
-    font-size: 1.3rem; 
-    align-self: flex-start; 
+    margin: 1.5rem 0 0.8rem; 
+    font-size: 1.4rem; 
+    text-align: center; /* Centrado para que no se vea descuadrado */
     width: 100%; 
     max-width: 900px;
-    border-left: 4px solid var(--c-terra);
-    padding-left: 10px;
+    border-bottom: 1px dashed var(--c-taupe); /* Detalle sutil abajo en vez de izquierda */
+    padding-bottom: 5px;
 }
 
 /* TABLAS DE DATOS */
@@ -108,7 +109,7 @@ h3 {
     color: #eee;
 }
 .data-table tr:hover { background: rgba(246, 168, 85, 0.1); }
-.winner { color: #4caf50; font-weight: bold; } /* Verde para ganador */
+.winner { color: #4caf50; font-weight: bold; }
 
 /* CAJAS DE CÓDIGO */
 .code-box {
@@ -145,7 +146,7 @@ h3 {
     border-radius: 4px;
 }
 
-/* CAJAS DE EXPLICACIÓN DETALLADA */
+/* CAJAS DE EXPLICACIÓN */
 .explanation-box {
     background: rgba(194, 195, 137, 0.08);
     border: 1px solid var(--c-oliva);
@@ -155,12 +156,23 @@ h3 {
     width: 100%;
     margin-top: 10px;
 }
-.explanation-box p {
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
-    color: #ddd;
-}
+.explanation-box p { margin-bottom: 0.8rem; line-height: 1.6; color: #ddd; }
 .explanation-box strong { color: var(--c-naranja); }
+
+/* ESTILOS ESPECÍFICOS PORTADA */
+.unalm-header table { width: 100%; border: none; background: transparent; }
+.unalm-header td { border: none; color: white; }
+.info-card {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--c-taupe);
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+}
+.project-title { font-size: 1.5rem; color: var(--c-naranja); margin-bottom: 0.5rem; text-align: center; }
 
 /* NAVEGACIÓN */
 .nav-btn {
@@ -176,54 +188,61 @@ h3 {
 #prev { left: 2rem; } #next { right: 2rem; }
 
 /* SLIDE FINAL */
-.ty-slide {
-    display: flex; flex-direction: column; justify-content: center; height: 80%;
-}
+.ty-slide { display: flex; flex-direction: column; justify-content: center; height: 80%; }
+
+/* SCROLLBAR PERSONALIZADO */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--c-cafe); }
+::-webkit-scrollbar-thumb { background: var(--c-taupe); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-naranja); }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Análisis de Precios y Disponibilidad de Libros Académicos</h1>
+    <h1>Evaluación Grupal 2 - Lenguaje de Programación II</h1>
 </header>
 
 <main id="slider">
 
     <section>
-        <div style="text-align: center; margin-top: 2rem;">
-            <h2 style="font-size: 3rem; border:none; text-shadow: 2px 2px 5px black;">Equipo de Desarrollo</h2>
-            <p style="color: var(--c-oliva); font-size: 1.2rem;">Evaluación Grupal 2 - Lenguaje de Programación II</p>
-        </div>
+        <div class="unalm-header" style="max-width: 900px; width: 100%; margin-top: 1rem;">
+            <table>
+              <tr>
+                <td style="padding-right: 20px; width: 120px;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Unalm_logo.png" width="115" alt="Logo UNALM" />
+                </td>
+                <td style="vertical-align: middle; font-size: 1.2rem; line-height: 1.2;">
+                  <strong style="font-size: 1.4rem; color: var(--c-naranja);">Universidad Nacional Agraria La Molina</strong><br>
+                  <span style="color: var(--c-oliva);">Facultad de Economía y Planificación</span><br>
+                  <span style="color: #ddd;">Departamento de Estadística e Informática</span>
+                </td>
+              </tr>
+            </table>
 
-        <table class="data-table" style="margin-top: 3rem;">
-            <thead>
-                <tr>
-                    <th>Integrante</th>
-                    <th>Usuario GitHub</th>
-                    <th>Código Estudiante</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Malvacedo Quiñonez, Jean Franco</td>
-                    <td>Solitario03</td>
-                    <td>20231496</td>
-                </tr>
-                <tr>
-                    <td>Mejia Auccapoma, Piero César</td>
-                    <td>PC-011</td>
-                    <td>20230399</td>
-                </tr>
-                <tr>
-                    <td>Ferro Choque, Alvaro</td>
-                    <td>Lupinthethird2</td>
-                    <td>20221398</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div style="margin-top: 3rem; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--c-naranja);">
-            <p style="text-align: center; margin: 0;"><strong>Herramientas Utilizadas:</strong> Python 🐍 • Selenium 🕷️ • Pandas 🐼 • Matplotlib 📊</p>
+            <div class="info-card" style="margin-top: 1rem; font-size: 0.95rem;">
+                <p><strong>Docente:</strong> Ana Cecilia Vargas Paredes <br>
+                📧 <em>anavargas@lamolina.edu.pe</em> | 🏫 <em>Oficina:</em> N.º 13, Facultad de Economía y Planificación<br>
+                🕒 <em>Horario de atención:</em> Martes y jueves, 11:00 – 12:00 h</p>
+            </div>
+
+            <div class="info-card" style="border-color: var(--c-naranja);">
+                <div class="project-title">🧮 Análisis de precios y disponibilidad de libros académicos</div>
+                <p style="margin-bottom: 10px;">Proyecto que consiste en recopilar automáticamente información de distintas plataformas en línea sobre precios, stock y formatos de libros académicos, con el fin de comparar costos, identificar disponibilidad y apoyar la toma de decisiones.</p>
+                <p><strong>Relevancia:</strong> Facilita la comparación de precios para estudiantes, haciendo la búsqueda más eficiente y amena.</p>
+                <p><strong>Producto:</strong> Conjunto de datos con precios, autores y editoriales.</p>
+            </div>
+
+            <table class="data-table" style="margin-top: 1rem; font-size: 0.9rem;">
+                <thead>
+                    <tr><th>Integrante</th><th>Usuario</th><th>Código</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Malvacedo Quiñonez, Jean Franco</td><td>Solitario03</td><td>20231496</td></tr>
+                    <tr><td>Mejia Auccapoma, Piero César</td><td>PC-011</td><td>20230399</td></tr>
+                    <tr><td>Ferro Choque, Alvaro</td><td>Lupinthethird2</td><td>20221398</td></tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
