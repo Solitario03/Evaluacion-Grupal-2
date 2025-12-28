@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluación Grupal 2 - Libros Académicos</title>
+<title>Evaluación Grupal 2 - Análisis de Datos</title>
 <style>
-/* === VARIABLES DE COLOR (TU PALETA) === */
+/* === ESTILOS VISUALES (PALETA TIERRA/OTOÑO) === */
 :root {
-    --c-naranja: #F6A855;   /* Títulos y realces */
-    --c-taupe:   #8A7270;   /* Fondos secundarios */
-    --c-cafe:    #452B1A;   /* Fondo principal */
-    --c-oliva:   #C2C389;   /* Subtítulos y texto código */
-    --c-terra:   #70321B;   /* Botones y Header */
+    --c-naranja: #F6A855;   /* Énfasis y bordes */
+    --c-taupe:   #8A7270;   /* Textos secundarios */
+    --c-cafe:    #452B1A;   /* Fondo Principal */
+    --c-oliva:   #C2C389;   /* Subtítulos y detalles */
+    --c-terra:   #70321B;   /* Encabezados y botones */
+    --c-negro:   #1a1a1a;   /* Fondo de código */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,42 +21,43 @@ body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background-color: var(--c-cafe);
     color: #f0f0f0;
-    overflow: hidden; /* Scroll interno en secciones */
+    overflow: hidden;
 }
 
-/* === HEADER === */
+/* HEADER FIJO */
 header {
     background: linear-gradient(135deg, var(--c-cafe), var(--c-terra));
     border-bottom: 4px solid var(--c-naranja);
-    height: 90px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 0; width: 100%; z-index: 100;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--c-naranja);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    letter-spacing: 1px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* === MAIN SLIDER === */
+/* CONTENEDOR DE SLIDES */
 main {
     display: flex;
     height: 100vh;
     width: 100%;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    padding-top: 90px;
+    padding-top: 80px;
 }
 
 section {
     min-width: 100%;
     height: 100%;
-    padding: 2rem 1rem;
+    padding: 1rem 3rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -63,281 +65,328 @@ section {
     background: radial-gradient(circle at center, #5a3822 0%, var(--c-cafe) 100%);
 }
 
-/* === TYPOGRAPHY === */
+/* TIPOGRAFÍA */
 h2 {
     color: var(--c-naranja);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--c-oliva);
-    display: inline-block;
     padding-bottom: 5px;
+    text-align: center;
 }
 
-h3 { color: var(--c-oliva); margin: 1.5rem 0 0.5rem; font-size: 1.4rem; }
-p, li { font-size: 1.1rem; line-height: 1.6; max-width: 900px; color: #ddd; }
-ul { list-style: none; padding: 0; }
-ul li::before { content: "➤"; color: var(--c-naranja); margin-right: 8px; }
+h3 { 
+    color: var(--c-oliva); 
+    margin: 1.5rem 0 0.5rem; 
+    font-size: 1.3rem; 
+    align-self: flex-start; 
+    width: 100%; 
+    max-width: 900px;
+    border-left: 4px solid var(--c-terra);
+    padding-left: 10px;
+}
 
-/* === LAYOUT BOXES === */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+/* TABLAS DE DATOS */
+.data-table {
     width: 100%;
-    max-width: 1300px;
-    margin-top: 1rem;
-}
-
-.card {
-    background: rgba(0, 0, 0, 0.25);
+    max-width: 900px;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: rgba(0,0,0,0.2);
     border: 1px solid var(--c-taupe);
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
+    font-size: 0.95rem;
 }
+.data-table th {
+    background: var(--c-terra);
+    color: var(--c-naranja);
+    padding: 12px;
+    text-align: left;
+}
+.data-table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #eee;
+}
+.data-table tr:hover { background: rgba(246, 168, 85, 0.1); }
+.winner { color: #4caf50; font-weight: bold; } /* Verde para ganador */
 
-/* === CODE BLOCKS === */
+/* CAJAS DE CÓDIGO */
 .code-box {
-    background: #1e1e1e;
+    background: var(--c-negro);
     border-left: 5px solid var(--c-naranja);
     padding: 1rem;
     border-radius: 6px;
     font-family: 'Consolas', monospace;
     font-size: 0.85rem;
     overflow-x: auto;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-}
-pre { margin: 0; }
-.kw { color: #569cd6; } .str { color: #ce9178; } .com { color: #6a9955; }
-
-/* === DATA TABLES (PINOCHO) === */
-.data-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    max-width: 900px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    margin-bottom: 1rem;
 }
-.data-table th { background: var(--c-terra); color: var(--c-naranja); padding: 10px; }
-.data-table td { border-bottom: 1px solid var(--c-taupe); padding: 8px; text-align: center; }
-.data-table tr:hover { background: rgba(246, 168, 85, 0.1); }
-.winner { color: #4caf50; font-weight: bold; } /* Verde para el ganador */
+.kw { color: #569cd6; font-weight: bold; } 
+.str { color: #ce9178; } 
+.com { color: #6a9955; font-style: italic; }
 
-/* === IMAGES === */
+/* IMÁGENES Y GRÁFICOS */
+.chart-container {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--c-taupe);
+    display: flex;
+    justify-content: center;
+}
 .chart-img {
-    width: 100%; max-height: 350px; object-fit: contain;
-    border: 1px solid var(--c-taupe); background: rgba(255,255,255,0.02);
+    max-height: 280px;
+    width: auto;
+    max-width: 100%;
+    border-radius: 4px;
 }
 
-/* === NAVIGATION === */
+/* CAJAS DE EXPLICACIÓN DETALLADA */
+.explanation-box {
+    background: rgba(194, 195, 137, 0.08);
+    border: 1px solid var(--c-oliva);
+    padding: 1.2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    margin-top: 10px;
+}
+.explanation-box p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+.explanation-box strong { color: var(--c-naranja); }
+
+/* NAVEGACIÓN */
 .nav-btn {
     position: fixed; bottom: 2rem;
     background: var(--c-terra); color: white;
     border: 2px solid var(--c-naranja);
-    padding: 0.8rem 1.8rem; border-radius: 30px;
-    cursor: pointer; font-weight: bold; z-index: 200;
-    transition: transform 0.2s;
+    padding: 0.7rem 2rem; border-radius: 30px;
+    cursor: pointer; font-weight: bold; font-size: 1rem;
+    z-index: 200; transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
-.nav-btn:hover { background: var(--c-naranja); color: var(--c-cafe); transform: scale(1.1); }
+.nav-btn:hover { background: var(--c-naranja); color: var(--c-cafe); transform: scale(1.05); }
 #prev { left: 2rem; } #next { right: 2rem; }
 
-/* === FOOTER === */
-footer {
-    position: fixed; bottom: 0; width: 100%;
-    background: var(--c-cafe); color: var(--c-oliva);
-    text-align: center; padding: 5px; font-size: 0.8rem;
-    z-index: 90;
-}
-
-@media (max-width: 768px) {
-    .grid-container { grid-template-columns: 1fr; }
-    h2 { font-size: 1.8rem; }
-    .nav-btn { bottom: 3.5rem; padding: 0.5rem 1rem; }
+/* SLIDE FINAL */
+.ty-slide {
+    display: flex; flex-direction: column; justify-content: center; height: 80%;
 }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Evaluación Grupal 2: Libros Académicos</h1>
+    <h1>Análisis de Precios y Disponibilidad de Libros Académicos</h1>
 </header>
 
 <main id="slider">
 
     <section>
-        <div style="text-align: center; margin-top: 5vh;">
-            <h2 style="font-size: 3.5rem; border: none; text-shadow: 3px 3px 5px black;">Precios y Disponibilidad</h2>
-            <h3 style="color: white; font-weight: normal;">Sistema Automatizado de Comparación</h3>
-            
-            <div style="margin-top: 3rem; background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 15px; border: 1px solid var(--c-naranja); display: inline-block;">
-                <p><strong>📅 Entrega:</strong> 16 de Diciembre</p>
-                <p><strong>🎤 Presentación:</strong> 23/30 de Diciembre</p>
-                <hr style="border-color: var(--c-oliva); margin: 1rem 0;">
-                <p style="color: var(--c-naranja);">Python • Selenium • APIs • Pandas</p>
-            </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <h2 style="font-size: 3rem; border:none; text-shadow: 2px 2px 5px black;">Equipo de Desarrollo</h2>
+            <p style="color: var(--c-oliva); font-size: 1.2rem;">Evaluación Grupal 2 - Lenguaje de Programación II</p>
         </div>
-    </section>
 
-    <section>
-        <h2>Descripción del Proyecto</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>📌 Objetivo</h3>
-                <p>Recopilar automáticamente información de plataformas (SBS, Crisol) y APIs académicas para comparar costos y disponibilidad de libros.</p>
-                <h3>💡 Relevancia</h3>
-                <p>Los estudiantes pierden tiempo buscando precios. Esta herramienta centraliza la información para tomar la decisión más económica.</p>
-            </div>
-            <div class="card" style="background: rgba(194, 195, 137, 0.1);">
-                <h3>📦 Producto Final</h3>
-                <ul>
-                    <li>Dataset Integrado (CSV).</li>
-                    <li>Tabla comparativa de precios (Caso Pinocho).</li>
-                    <li>Gráficos de análisis editorial.</li>
-                    <li>Código modular y reutilizable.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Fase 1: Web Scraping & Lógica</h2>
-        <p>Extracción en tiempo real y algoritmo de decisión de compra.</p>
+        <table class="data-table" style="margin-top: 3rem;">
+            <thead>
+                <tr>
+                    <th>Integrante</th>
+                    <th>Usuario GitHub</th>
+                    <th>Código Estudiante</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Malvacedo Quiñonez, Jean Franco</td>
+                    <td>Solitario03</td>
+                    <td>20231496</td>
+                </tr>
+                <tr>
+                    <td>Mejia Auccapoma, Piero César</td>
+                    <td>PC-011</td>
+                    <td>20230399</td>
+                </tr>
+                <tr>
+                    <td>Ferro Choque, Alvaro</td>
+                    <td>Lupinthethird2</td>
+                    <td>20221398</td>
+                </tr>
+            </tbody>
+        </table>
         
-        <div class="grid-container">
-            <div class="code-box">
-<pre><code><span class="com"># Fragmento de Web Scraping.ipynb</span>
+        <div style="margin-top: 3rem; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--c-naranja);">
+            <p style="text-align: center; margin: 0;"><strong>Herramientas Utilizadas:</strong> Python 🐍 • Selenium 🕷️ • Pandas 🐼 • Matplotlib 📊</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>1. Web Scraping: Lógica de Comparación</h2>
+        
+        <h3>Datos Filtrados (Caso de Estudio: "Pinocho")</h3>
+        <table class="data-table">
+            <thead>
+                <tr><th>ISBN</th><th>Título</th><th>Precio SBS</th><th>Precio Crisol</th><th>Mejor Opción</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>9788491421337</td><td>PINOCHO</td><td>S/ 34.93</td><td>S/ 49.90</td><td class="winner">SBS 🏆</td></tr>
+                <tr><td>9788491056584</td><td>AVENTURAS DE...</td><td>S/ 49.00</td><td>S/ 49.00</td><td>EMPATE 🤝</td></tr>
+                <tr><td>9786124301803</td><td>PINOCHO Y SUS...</td><td>S/ 39.00</td><td>S/ 43.00</td><td class="winner">SBS 🏆</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Lógica de Filtrado (Extracto de Web Scraping.ipynb)</h3>
+        <div class="code-box">
+<pre><code><span class="com"># Limpieza y Conversión de Tipos de Datos</span>
 <span class="kw">try</span>:
+    <span class="com"># 1. Eliminamos el símbolo de moneda ("S/ ") para operar matemáticamente</span>
     precio_sbs = float(item[<span class="str">'Precio_SBS'</span>].replace(<span class="str">"S/ "</span>,<span class="str">""</span>))
     precio_cri = float(item[<span class="str">'Precio_CRI'</span>].replace(<span class="str">"S/ "</span>,<span class="str">""</span>))
 
+    <span class="com"># 2. Algoritmo de decisión de compra</span>
     <span class="kw">if</span> precio_sbs < precio_cri:
         mejor = <span class="str">"SBS"</span>
     <span class="kw">elif</span> precio_cri < precio_sbs:
         mejor = <span class="str">"Crisol"</span>
     <span class="kw">else</span>:
         mejor = <span class="str">"EMPATE"</span>
-        
-    reporte.append({
-        <span class="str">'Título'</span>: titulo,
-        <span class="str">'Mejor Opción'</span>: mejor
-    })
-<span class="kw">except</span>:
-    <span class="kw">print</span>(<span class="str">"Error en conversión"</span>)</code></pre>
-            </div>
-            <div class="card">
-                <h3>🔍 Estrategia</h3>
-                <p>Se usó <strong>Selenium</strong> para navegar páginas dinámicas y extraer precios ocultos. Luego, un script limpia los símbolos de moneda ("S/") y compara valores numéricos.</p>
-            </div>
+<span class="kw">except</span> ValueError:
+    mejor = <span class="str">"Error en Formato"</span></code></pre>
+        </div>
+
+        <div class="explanation-box">
+            <p><strong>¿Por qué se filtró de este modo?</strong><br>
+            Los datos extraídos directamente de la web son cadenas de texto (ej: "S/ 49.90"). Para realizar un análisis cuantitativo y determinar la "Mejor Opción" automáticamente, fue obligatorio realizar un <strong>pre-procesamiento de limpieza</strong> (Data Cleaning) eliminando caracteres no numéricos y convirtiendo los strings a flotantes.</p>
         </div>
     </section>
 
     <section>
-        <h2>Fase 2: Consumo de APIs</h2>
-        <p>Manejo de estructuras JSON complejas (OpenAlex, OpenLibrary, Crossref).</p>
+        <h2>2. Consumo de APIs: Normalización JSON</h2>
         
-        <div class="grid-container">
-            <div class="card">
-                <img src="Graficos/libros_por_fuente.png" class="chart-img" alt="Gráfico Fuentes" onerror="this.style.display='none'; this.parentElement.innerHTML+='<p>[Gráfico: Libros por Fuente]</p>'">
-            </div>
-            <div class="code-box">
-<pre><code><span class="com"># Fragmento de API_scripts.py</span>
-<span class="com"># Normalización de datos anidados (JSON)</span>
+        <h3>Estructura de Datos Obtenida</h3>
+        <div class="explanation-box" style="margin-bottom: 1rem;">
+            <p>Las APIs académicas (OpenAlex, Crossref) devuelven objetos JSON profundamente anidados. El reto fue "aplanar" esta estructura para integrarla en un CSV compatible con el Scraping.</p>
+        </div>
+
+        <h3>Lógica de Extracción (Extracto de API_scripts.py)</h3>
+        <div class="code-box">
+<pre><code><span class="com"># Iteración sobre resultados crudos (JSON)</span>
+libros = []
 <span class="kw">for</span> item <span class="kw">in</span> data[<span class="str">"results"</span>]:
     libros.append({
+        <span class="com"># Uso de .get() para manejo seguro de claves faltantes</span>
         <span class="str">"titulo"</span>: item.get(<span class="str">"title"</span>),
-        <span class="com"># Acceso seguro a campos anidados</span>
         <span class="str">"anio"</span>: item.get(<span class="str">"publication_year"</span>),
+        
+        <span class="com"># Navegación profunda segura: location -> source -> display_name</span>
         <span class="str">"editorial"</span>: item.get(<span class="str">"primary_location"</span>, {})
                       .get(<span class="str">"source"</span>, {})
-                      .get(<span class="str">"display_name"</span>)
+                      .get(<span class="str">"display_name"</span>, <span class="str">"Editorial Desconocida"</span>)
     })
+<span class="com"># Resultado: Lista de diccionarios plana lista para Pandas</span></code></pre>
+        </div>
 
-<span class="kw">with</span> open(<span class="str">"data/raw/openalex_books.json"</span>, <span class="str">"w"</span>) <span class="kw">as</span> f:
-    json.dump(data, f, indent=4)</code></pre>
-            </div>
+        <div class="explanation-box">
+            <p><strong>¿Por qué se filtró de este modo?</strong><br>
+            En bases de datos masivas como OpenAlex, no todos los registros tienen todos los campos completos. Acceder directamente (ej: <code>item['primary_location']</code>) provocaría que el script se detenga si falta un dato. Usamos el método <code>.get(clave, valor_por_defecto)</code> para garantizar la <strong>robustez</strong> del código y asegurar que la recolección no se interrumpa por errores de formato.</p>
         </div>
     </section>
 
     <section>
-        <h2>Resultados: Caso "Pinocho"</h2>
-        <p>Datos reales extraídos de <code>comparativa_pinocho.csv</code>.</p>
+        <h2>Gráfico 1: Distribución por Fuente de Datos</h2>
         
-        <div class="card" style="width: 100%; max-width: 1000px; background: #2a1a10;">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>ISBN</th>
-                        <th>Título</th>
-                        <th>Precio SBS</th>
-                        <th>Precio Crisol</th>
-                        <th>Mejor Opción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>9788491421337</td>
-                        <td>PINOCHO</td>
-                        <td>S/ 34.93</td>
-                        <td>S/ 49.90</td>
-                        <td class="winner">SBS 🏆</td>
-                    </tr>
-                    <tr>
-                        <td>9788491056584</td>
-                        <td>AVENTURAS DE PINOCHO</td>
-                        <td>S/ 49.00</td>
-                        <td>S/ 49.00</td>
-                        <td>EMPATE 🤝</td>
-                    </tr>
-                    <tr>
-                        <td>9786124301803</td>
-                        <td>PINOCHO Y SUS AVENTURAS...</td>
-                        <td>S/ 39.00</td>
-                        <td>S/ 43.00</td>
-                        <td class="winner">SBS 🏆</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
-                * La herramienta detectó automáticamente que SBS ofrecía mejores precios en el 75% de los casos coincidentes para esta búsqueda.
-            </p>
+        <div class="chart-container">
+            <img src="Graficos/libros_por_fuente.png" class="chart-img" alt="Gráfico Pastel: Fuentes" onerror="this.style.display='none'; this.parentElement.innerHTML+='<p>[Imagen no encontrada: libros_por_fuente.png]</p>'">
+        </div>
+
+        <div class="code-box">
+<pre><code><span class="com"># Visualización de Proporciones (Matplotlib)</span>
+df[<span class="str">'fuente'</span>].value_counts().plot(kind=<span class="str">'pie'</span>, autopct=<span class="str">'%1.1f%%'</span>, startangle=90)
+plt.title(<span class="str">"Composición del Dataset por Origen"</span>)</code></pre>
+        </div>
+
+        <div class="explanation-box">
+            <p><strong>¿Qué indica este gráfico?</strong><br>
+            Muestra el porcentaje de contribución de cada método de extracción (Scraping Web vs. APIs) al conjunto de datos final.</p>
+            <p><strong>¿Por qué escogimos este gráfico?</strong><br>
+            Es fundamental para validar la <strong>integridad de la integración</strong>. Nos permite demostrar que no dependemos de una sola fuente y que hemos logrado unificar exitosamente datos heterogéneos, cumpliendo el requisito de "Múltiples Fuentes" de la rúbrica.</p>
         </div>
     </section>
 
     <section>
-        <h2>Análisis Global de Datos</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Editoriales Dominantes</h3>
-                <img src="Graficos/libros_por_editorial.png" class="chart-img" alt="Editoriales" onerror="this.style.display='none'">
-                <p>Análisis de las principales editoriales encontradas (Springer, O'Reilly).</p>
-            </div>
-            <div class="card">
-                <h3>Integración (Pandas)</h3>
-                <div class="code-box">
-<pre><code><span class="com"># Integracion_Analisis.ipynb</span>
-dataset = pd.concat([
-    openlibrary_clean, 
-    openalex_clean, 
-    crossref_clean
-], ignore_index=<span class="kw">True</span>)
+        <h2>Gráfico 2: Top Editoriales Académicas</h2>
+        
+        <div class="chart-container">
+            <img src="Graficos/libros_por_editorial.png" class="chart-img" alt="Gráfico Barras: Editoriales" onerror="this.style.display='none';">
+        </div>
 
-<span class="com"># Eliminación de duplicados</span>
-dataset = dataset.drop_duplicates(subset=<span class="str">"titulo"</span>)
-dataset.to_csv(<span class="str">"libros_integrados.csv"</span>)</code></pre>
-                </div>
-            </div>
+        <div class="code-box">
+<pre><code><span class="com"># Análisis de Frecuencia (Pandas)</span>
+top_editoriales = df[<span class="str">'editorial'</span>].value_counts().head(10)
+top_editoriales.plot(kind=<span class="str">'barh'</span>, color=<span class="str">'skyblue'</span>)
+plt.xlabel(<span class="str">"Cantidad de Publicaciones"</span>)</code></pre>
+        </div>
+
+        <div class="explanation-box">
+            <p><strong>¿Qué indica este gráfico?</strong><br>
+            Identifica las 10 editoriales con mayor presencia en nuestro dataset (ej. Springer, O'Reilly).</p>
+            <p><strong>¿Por qué escogimos este gráfico?</strong><br>
+            En el contexto universitario, la <strong>calidad de la fuente</strong> es crítica. Este gráfico valida que nuestra herramienta está recuperando literatura de editoriales científicas y técnicas reconocidas, asegurando que los resultados son útiles para una investigación académica seria.</p>
         </div>
     </section>
 
     <section>
-        <h2>Conclusiones</h2>
-        <div class="card" style="max-width: 800px; border: 2px solid var(--c-naranja);">
-            <ul style="font-size: 1.2rem; line-height: 2;">
-                <li>✅ <strong>Eficacia:</strong> Se demostró un ahorro real (ver caso Pinocho) automatizando la comparación.</li>
-                <li>✅ <strong>Robustez:</strong> El manejo de errores en JSON (<code>item.get</code>) evitó caídas del sistema ante datos faltantes.</li>
-                <li>✅ <strong>Integración:</strong> Se unificaron fuentes heterogéneas (Scraping HTML + REST APIs) en un solo flujo.</li>
-                <li>✅ <strong>Colaboración:</strong> Estructura modular de carpetas (<code>processed/raw</code>) facilitada por Git.</li>
+        <h2>Gráfico 3: Análisis Temporal (Publicaciones por Año)</h2>
+        
+        <div class="chart-container">
+            <img src="Graficos/libros_por_anio.png" class="chart-img" alt="Gráfico Histograma: Años" onerror="this.style.display='none';">
+        </div>
+
+        <div class="code-box">
+<pre><code><span class="com"># Distribución Histórica</span>
+df[<span class="str">'anio'</span>].plot(kind=<span class="str">'hist'</span>, bins=20, color=<span class="str">'salmon'</span>, edgecolor=<span class="str">'black'</span>)
+plt.title(<span class="str">"Vigencia de la Información Bibliográfica"</span>)</code></pre>
+        </div>
+
+        <div class="explanation-box">
+            <p><strong>¿Qué indica este gráfico?</strong><br>
+            Muestra la frecuencia de libros publicados a lo largo del tiempo, permitiendo ver concentraciones en años recientes o pasados.</p>
+            <p><strong>¿Por qué escogimos este gráfico?</strong><br>
+            Para evaluar la <strong>obsolescencia tecnológica</strong>. Dado que buscamos libros de programación (Python, Data Science), es vital que la herramienta priorice material reciente (últimos 5-10 años). Este gráfico nos confirma si el dataset está actualizado.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Conclusiones Finales</h2>
+        <div class="explanation-box" style="background: rgba(0,0,0,0.4); padding: 2rem;">
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 1.5rem;">
+                    ✅ <strong>Eficacia Económica:</strong> El módulo de Scraping demostró (Caso Pinocho) diferencias de precio superiores al 30% entre proveedores, validando la utilidad de la herramienta para el ahorro estudiantil.
+                </li>
+                <li style="margin-bottom: 1.5rem;">
+                    ✅ <strong>Robustez Técnica:</strong> La implementación de manejo de excepciones (try/except) y métodos seguros (.get) en Python garantizó la ejecución continua de los scripts de recolección masiva.
+                </li>
+                <li style="margin-bottom: 1.5rem;">
+                    ✅ <strong>Sinergia Colaborativa:</strong> La división de tareas (Scraping / APIs / Integración) y su posterior unificación mediante Git permitió procesar un volumen de datos que sería inmanejable manualmente.
+                </li>
             </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="ty-slide">
+            <h2 style="font-size: 5rem; text-shadow: 4px 4px 10px black; border:none; margin-bottom: 2rem;">¡Muchas Gracias!</h2>
+            <p style="text-align: center; font-size: 2rem; color: var(--c-oliva);">Por su atención y tiempo</p>
+            <div style="margin-top: 3rem; font-size: 1rem; color: #aaa;">
+                ¿Preguntas? Estamos listos para responder.
+            </div>
         </div>
     </section>
 
@@ -347,13 +396,14 @@ dataset.to_csv(<span class="str">"libros_integrados.csv"</span>)</code></pre>
 <button id="next" class="nav-btn" onclick="move(1)">Siguiente ❯</button>
 
 <footer>
-    © 2025 - Evaluación Grupal 2 | Análisis de Datos
+    © 2025 - Evaluación Grupal LP2 | Análisis de Datos Académicos
 </footer>
 
 <script>
     let idx = 0;
     const slider = document.getElementById('slider');
-    const total = document.querySelectorAll('section').length;
+    const sections = document.querySelectorAll('section');
+    const total = sections.length;
 
     function move(n) {
         idx += n;
@@ -362,23 +412,18 @@ dataset.to_csv(<span class="str">"libros_integrados.csv"</span>)</code></pre>
         slider.style.transform = `translateX(-${idx * 100}%)`;
     }
 
-    // Teclado
+    // Soporte Teclado
     document.addEventListener('keydown', (e) => {
-        if(e.key === 'ArrowRight' || e.key === ' ') move(1);
+        if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') move(1);
         if(e.key === 'ArrowLeft') move(-1);
     });
 
-    // Touch
-    let xDown = null;
-    document.addEventListener('touchstart', e => xDown = e.touches[0].clientX);
-    document.addEventListener('touchmove', e => {
-        if (!xDown) return;
-        let xUp = e.touches[0].clientX;
-        let diff = xDown - xUp;
-        if (Math.abs(diff) > 50) {
-            move(diff > 0 ? 1 : -1);
-            xDown = null;
-        }
+    // Soporte Táctil (Swipe)
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+    document.addEventListener('touchend', e => {
+        if (e.changedTouches[0].screenX < touchStartX - 50) move(1);
+        if (e.changedTouches[0].screenX > touchStartX + 50) move(-1);
     });
 </script>
 
