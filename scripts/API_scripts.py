@@ -43,8 +43,6 @@ for libro in data["docs"][:100]:  # primeros 100 libros
 df = pd.DataFrame(libros)
 df.to_csv("data/processed/openlibrary.csv", index=False, encoding="utf-8")
 
-df.head()
-
 
 "Importaciones para consumo de la API OpenAlex"
 
@@ -88,7 +86,6 @@ df = pd.DataFrame(libros)
 os.makedirs("data/processed", exist_ok=True)
 df.to_csv("data/processed/openalex_books.csv", index=False, encoding="utf-8")
 
-df.head()
 
 
 "Extracción de información desde la API OpenAlex"
@@ -135,5 +132,6 @@ df.to_csv(
     encoding="utf-8"
 )
 
-df.head()
+
+
 
