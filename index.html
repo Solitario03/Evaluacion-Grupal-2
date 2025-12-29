@@ -118,13 +118,32 @@ h3 {
     padding: 1rem;
     border-radius: 6px;
     font-family: 'Consolas', monospace;
-    font-size: 0.85rem;
-    overflow-x: auto;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
     width: 100%;
     max-width: 900px;
+
+    
     box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
     margin-bottom: 1rem;
 }
+
+.code-box pre {
+    margin: 0;
+
+    max-height: 420px;        
+    overflow-y: auto;         
+    overflow-x: auto;
+
+    white-space: pre-wrap;   
+    word-break: break-word;
+}
+
+.code-box code {
+    display: block;
+}
+    
 .kw { color: #569cd6; font-weight: bold; } 
 .str { color: #ce9178; } 
 .com { color: #6a9955; font-style: italic; }
