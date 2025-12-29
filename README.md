@@ -41,6 +41,7 @@ Conjunto de datos con precios, autores y editoriales.
 |---------------|----------|----------|
 | Malvacedo Quiñonez, Jean Franco  | Solitario03  | 20231496  |
 | Mejia Auccapoma, Piero Cesar     | PC-011  | 20230399  |
+|Ferro Choque, Alvaro  |	Lupinthethird2 | 20221398  |
 
 ---
 ## 📚 Fuentes de Datos
@@ -49,12 +50,11 @@ Conjunto de datos con precios, autores y editoriales.
 
 <ol>
   <li>
-    <strong>Buscalibre Perú</strong><br>
-    <a href="https://www.buscalibre.com.pe" target="_blank">https://www.buscalibre.com.pe</a><br>
-    Plataforma de comercio electrónico que ofrece un amplio catálogo de libros académicos.
-    Se extraerá información como título del libro, autor, editorial, precio, disponibilidad,
-    stock y reseñas. Para la recolección de datos se utilizará <em>BeautifulSoup</em> en páginas
-    estáticas y <em>Selenium</em> para el manejo de filtros dinámicos.
+    <strong>SBS Librería Internacional</strong><br>
+    <a href="https://www.sbs.com.pe/" target="_blank">https://www.sbs.com.pe</a><br>
+    Tienda online de librería y material educativo. Se extraerán datos relacionados con
+    precios, descuentos, disponibilidad en tienda física y virtual, categorías de libros
+    (académicos, literatura, idiomas) y detalles editoriales de cada producto.
   </li>
   <br>
   <li>
@@ -145,4 +145,5 @@ Conjunto de datos con precios, autores y editoriales.
     reforzando el enfoque del proyecto en la integración de datos automatizada.
   </li>
 </ul>
+
 
