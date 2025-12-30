@@ -97,6 +97,27 @@ h3 {
     border: 1px solid var(--c-taupe);
     font-size: 0.95rem;
 }
+
+.gracias-gif {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;   /* 👈 centra horizontal */
+}
+
+
+.slide-gracias {
+    background-image: url("https://javireina.wordpress.com/wp-content/uploads/2016/06/cropped-biblioteca-trinity-college2.jpg");
+    background-repeat: no-repeat;      
+    background-position: center;         
+    background-size: cover;             
+    min-height: 100vh;                
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .data-table th {
     background: var(--c-terra);
     color: var(--c-naranja);
@@ -265,6 +286,59 @@ h3 {
         </div>
     </section>
 
+
+    <section>
+        <h2>🎯 Objetivos del Proyecto</h2>
+    
+        <div class="explanation-box"> <p class="objetivo-general">
+                <strong>🌐 Objetivo General</strong><br>
+                Desarrollar un sistema integral de extracción y procesamiento de datos bibliográficos 
+                que combine el consumo de APIs abiertas con técnicas de Web Scraping , 
+                permitiendo centralizar información académica y comparar precios en tiempo real 
+                entre librerías locales (SBS y Crisol).
+        </p> </div>
+    
+        <h3>📌 Objetivos Específicos</h3>
+        <ul class="objetivos-lista">
+                
+            <li>
+                <strong>Automatización de Fuentes Académicas:</strong><br>
+                    Implementar scripts en Python para consumir APIs 
+                    (OpenLibrary, OpenAlex, Crossref) y estructurar metadatos 
+                    en formatos JSON / CSV.
+                    
+                <div class="explanation-box">
+                    <p><strong>¿Por qué estructurar la data?</strong><br>
+                        Las APIs devuelven árboles de datos complejos. Para usarlos, fue necesario realizar un <strong>mapeo y normalización</strong> (parsing), estandarizando autores y fechas en un formato plano (JSON/CSV).</p>
+                </div>
+            </li>
+    
+            <li>
+                <strong>Herramienta de Ahorro (Scraping):</strong><br>
+                    Desarrollar un bot con Selenium 🤖 que compare precios 
+                    de libros específicos (caso “Pinocho”) entre catálogos comerciales.
+    
+                <div class="explanation-box">
+                    <p><strong>¿Por qué se filtró de este modo?</strong><br>
+                        Los datos web son texto (ej: "S/ 49.90"). Para el análisis cuantitativo, fue obligatorio realizar un <strong>Data Cleaning</strong> eliminando caracteres no numéricos y convirtiendo a flotantes.</p>
+                </div>
+            </li>
+    
+            <li>
+                <strong>Integración y Visualización:</strong><br>
+                    Unificar fuentes heterogéneas en un dataset coherente 
+                    para mostrar tablas comparativas y métricas claras.
+    
+                <div class="explanation-box">
+                    <p><strong>¿El reto de la unificación?</strong><br>
+                        Al tener fuentes tan distintas (APIs vs. Tiendas), los ISBN no siempre coinciden. Se aplicó una lógica de <strong>consolidación</strong> basada en coincidencias de títulos y metadatos limpios.</p>
+                </div>
+            </li>
+    
+        </ul>
+    </section>
+
+
     <section>
         <h2>1. Web Scraping: Lógica de Comparación</h2>
         
@@ -306,35 +380,139 @@ h3 {
     </section>
 
     <section>
-        <h2>2. Consumo de APIs: Normalización JSON</h2>
-        
-        <h3>Estructura de Datos Obtenida</h3>
+        <h2>📚 Open Library API: De la Información Bruta al Análisis</h2>
+    
+        <h3>Open Library API</h3>
         <div class="explanation-box" style="margin-bottom: 1rem;">
-            <p>Las APIs académicas (OpenAlex, Crossref) devuelven objetos JSON profundamente anidados. El reto fue "aplanar" esta estructura para integrarla en un CSV compatible con el Scraping.</p>
+            <p>
+                La <strong>Open Library API</strong> proporciona información bibliográfica abierta sobre
+                libros, autores y fechas de publicación. Esta API resulta especialmente útil para
+                proyectos académicos y de análisis de datos, ya que ofrece grandes volúmenes de
+                información estructurada en formato JSON.
+            </p>
+            <p>
+                Sitio oficial: 
+                <a href="https://openlibrary.org/" target="_blank">
+                    https://openlibrary.org/
+                </a>
+            </p>
         </div>
-
-        <h3>Lógica de Extracción (Extracto de API_scripts.py)</h3>
-        <div class="code-box">
-<pre><code><span class="com"># Iteración sobre resultados crudos (JSON)</span>
-libros = []
-<span class="kw">for</span> item <span class="kw">in</span> data[<span class="str">"results"</span>]:
-    libros.append({
-        <span class="com"># Uso de .get() para manejo seguro de claves faltantes</span>
-        <span class="str">"titulo"</span>: item.get(<span class="str">"title"</span>),
-        <span class="str">"anio"</span>: item.get(<span class="str">"publication_year"</span>),
-        
-        <span class="com"># Navegación profunda segura: location -> source -> display_name</span>
-        <span class="str">"editorial"</span>: item.get(<span class="str">"primary_location"</span>, {})
-                      .get(<span class="str">"source"</span>, {})
-                      .get(<span class="str">"display_name"</span>, <span class="str">"Editorial Desconocida"</span>)
-    })
-<span class="com"># Resultado: Lista de diccionarios plana lista para Pandas</span></code></pre>
-        </div>
-
+    
+        <h3>Descarga de información desde la Open Library API</h3>
         <div class="explanation-box">
-            <p><strong>¿Por qué se filtró de este modo?</strong><br>
-            En bases de datos masivas como OpenAlex, no todos los registros tienen todos los campos completos. Acceder directamente (ej: <code>item['primary_location']</code>) provocaría que el script se detenga si falta un dato. Usamos el método <code>.get(clave, valor_por_defecto)</code> para garantizar la <strong>robustez</strong> del código y asegurar que la recolección no se interrumpa por errores de formato.</p>
+            <p>
+                En esta etapa se realiza una consulta a la API de Open Library utilizando un término
+                de búsqueda. Los resultados se almacenan localmente en formato JSON para su posterior
+                procesamiento y normalización.
+            </p>
         </div>
+    
+        <div class="code-box">
+    <pre><code><span class="kw">import</span> os
+    <span class="kw">import</span> requests
+    <span class="kw">import</span> json
+    
+    <span class="kw">def</span> descargar_openlibrary(query):
+        <span class="com"># Crear carpetas si no existen</span>
+        os.makedirs(<span class="str">"data/raw"</span>, exist_ok=<span class="kw">True</span>)
+        
+        url = <span class="str">f"https://openlibrary.org/search.json?q={query}"</span>
+        resp = requests.get(url)
+        data = resp.json()
+        
+        <span class="kw">with</span> open(<span class="str">"data/raw/openlibrary.json"</span>, <span class="str">"w"</span>, encoding=<span class="str">"utf-8"</span>) <span class="kw">as</span> f:
+            json.dump(data, f, ensure_ascii=<span class="kw">False</span>, indent=<span class="kw">4</span>)
+        
+        <span class="kw">print</span>(<span class="str">"Archivo openlibrary.json guardado correctamente"</span>)
+    
+    descargar_openlibrary(<span class="str">"python libros"</span>)</code></pre>
+        </div>
+    
+        <div class="explanation-box">
+            <p><strong>Salida del script:</strong></p>
+            <code>Archivo openlibrary.json guardado correctamente</code>
+        </div>
+    
+        <h3>Conversión de JSON a CSV</h3>
+        <div class="explanation-box">
+            <p>
+                Dado que el archivo JSON contiene estructuras anidadas y una gran cantidad de registros,
+                se realizó una conversión controlada a formato CSV. Para ello, se seleccionaron los
+                campos más relevantes y se aplicó el método <code>.get()</code> para evitar errores
+                cuando ciertos datos no están disponibles.
+            </p>
+        </div>
+    
+        <div class="code-box">
+    <pre><code><span class="kw">import</span> json
+    <span class="kw">import</span> pandas <span class="kw">as</span> pd
+    <span class="kw">import</span> os
+    
+    <span class="com"># Asegurar carpeta processed</span>
+    os.makedirs(<span class="str">"data/processed"</span>, exist_ok=<span class="kw">True</span>)
+    
+    <span class="kw">with</span> open(<span class="str">"data/raw/openlibrary.json"</span>, encoding=<span class="str">"utf-8"</span>) <span class="kw">as</span> f:
+        data = json.load(f)
+    
+    libros = []
+    
+    <span class="kw">for</span> libro <span class="kw">in</span> data[<span class="str">"docs"</span>][:<span class="kw">100</span>]:
+        libros.append({
+            <span class="str">"titulo"</span>: libro.get(<span class="str">"title"</span>),
+            <span class="str">"autor"</span>: <span class="str">", "</span>.join(libro.get(<span class="str">"author_name"</span>, [])),
+            <span class="str">"anio_publicacion"</span>: libro.get(<span class="str">"first_publish_year"</span>)
+        })
+    
+    df = pd.DataFrame(libros)
+    df.to_csv(<span class="str">"data/processed/openlibrary.csv"</span>, index=<span class="kw">False</span>, encoding=<span class="str">"utf-8"</span>)
+    
+    df.head()</code></pre>
+        </div>
+    
+        <h3>Ejemplo de salida (CSV)</h3>
+        <div class="explanation-box">
+            <p>
+                A continuación se muestra un extracto de los datos obtenidos tras la normalización
+                y conversión a CSV:
+            </p>
+        </div>
+    
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Año de publicación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pythons' Autobiography by the Pythons</td>
+                    <td>Monty Python, Graham Chapman, John Cleese</td>
+                    <td>2003</td>
+                </tr>
+                <tr>
+                    <td>El gran libro de Python</td>
+                    <td>Marco Buttu, EDIZIONI LSWR</td>
+                    <td>2016</td>
+                </tr>
+                <tr>
+                    <td>Aprende a programar con PYTHON</td>
+                    <td>José Dimas Luján Castillo</td>
+                    <td>2019</td>
+                </tr>
+                <tr>
+                    <td>PYTHON. Curso práctico de formación</td>
+                    <td>Juan Carlos Orós Cabello</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>PYTHON 3 al descubierto 2º Edición</td>
+                    <td>Arturo Fernández Montoro</td>
+                    <td>2013</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
     <section>
@@ -447,12 +625,26 @@ plt.title(<span class="str">"Vigencia de la Información Bibliográfica"</span>)
         </div>
     </section>
 
-    <section>
+
+    <section class="slide-gracias">
         <div class="ty-slide">
-            <h2 style="font-size: 5rem; text-shadow: 4px 4px 10px black; border:none; margin-bottom: 2rem;">¡Muchas Gracias!</h2>
-            <p style="text-align: center; font-size: 2rem; color: var(--c-oliva);">Por su atención y tiempo</p>
+            <h2 style="font-size: 5rem; text-shadow: 4px 4px 10px black; border:none; margin-bottom: 2rem;">
+                ¡Muchas Gracias!
+            </h2>
+    
+            <p style="text-align: center; font-size: 2rem; color: var(--c-oliva); margin-bottom: 2rem;">
+                Por su atención y tiempo
+            </p>
+    
+            <img 
+                src="https://minecraft.wiki/images/Enchanting_Table.gif?904a7"
+                alt="Mesa de encantamientos"
+                class="gracias-gif"
+            >
         </div>
     </section>
+
+
 
 </main>
 
