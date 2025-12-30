@@ -30,10 +30,16 @@ Facilita la comparación de precios para estudiantes, de modo que la busqueda de
 **Producto:**  
 Conjunto de datos con precios, autores y editoriales. 
 
-**Objetivos y resultados del Webscraping:**
-El wescraping que ejecutamos en este proyecto tiene como fin elaborar un programa de ayuda en la eleccion del mejor precio a la hora de elegir un libro en especifico. Este programa
-le permite al usuario imgresar el nombre del libro de su eleccion y tendra como resultado una tabla con los libros que tiene ese nombre o parte de el, cabe aclarar que se tendran los datos de estos libros al comparar los precios de las 2 paginas web elegidas para este proyecto, dando como resultado un cuadro comparativo entre los precios que encontro y mostrandolo al usuario para su libre eleccion. 
-Ademas se logro guardar los datos de todos los libros que se encontraron en la busqueda en tablas con formato csv, tanto de la tienda SBS como de la tienda Crisol, ademas de un cuadro comparativo entre estas dos tiendas, en este caso se uso como ejemplo el libro infantil "Pinocho". 
+**Objetivos:**
+Objetivo General: Desarrollar un sistema integral de extracción y procesamiento de datos bibliográficos que combine el consumo de APIs abiertas con técnicas de Web Scraping, con el fin de centralizar información académica y proporcionar una herramienta automatizada de comparación de precios en tiempo real entre librerías locales (SBS y Crisol), facilitando así la toma de decisiones económicas y de investigación para el usuario.
+
+Objetivos Específicos:
+
+- Automatización de Fuentes Académicas: Implementar scripts en Python para la consulta masiva de APIs (OpenLibrary, OpenAlex, Crossref), estructurando metadatos clave (título, autor, DOI, editorial) en formatos estandarizados (JSON/CSV) para su posterior análisis.
+
+- Herramienta de Ahorro (Scraping): Desarrollar un bot de navegación web (Selenium) que busque simultáneamente en catálogos comerciales, extrayendo y comparando precios de libros específicos (Caso de estudio: "Pinocho") para identificar la opción de compra más económica.
+
+- Integración y Visualización: Unificar fuentes de datos heterogéneas en un dataset coherente que permita al usuario visualizar tablas comparativas y métricas de disponibilidad de forma clara y directa.
 
 **Fecha de entrega:** 16 de diciembre  
 **Fecha de presentación:** 23 o 30 de diciembre  
@@ -150,6 +156,7 @@ Ademas se logro guardar los datos de todos los libros que se encontraron en la b
     reforzando el enfoque del proyecto en la integración de datos automatizada.
   </li>
 </ul>
+
 
 
 
